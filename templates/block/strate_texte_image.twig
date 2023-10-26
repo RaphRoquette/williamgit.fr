@@ -1,0 +1,42 @@
+{#
+/**
+ * Block Name: Texte + image
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+
+{% if is_preview %}
+
+ <h1 style="color:#fff;font-weight:normal;padding:0.5em;background: #007cba;">Bloc : {{block.title}}</h1>
+
+{% else %}
+
+    {% set imgPosition = fields.options_bloc_texte_image.position_image %}
+
+</div>
+
+<div class="wrapBlock {{block.className}} ">
+<div class="contenu">
+<div class="flex grid lg-c2 lg-cg5 sm-py4 lg-py5 f-aic">
+
+            <div class="sm-pr0 lg-pr5 {% if imgPosition == 'Image à gauche' %}lg-f-order2{% endif %}">
+                <h2 class="mb2">{{fields.strate_texte_image_titre}}</h2>
+
+                 <div class="txt-base">
+                {{fields.strate_texte_image_texte}}
+                </div>
+            </div>
+
+            <div class="img--fond ratio w100">
+            <img width="{{Image(fields.strate_texte_image_img).width}}" height="{{Image(fields.strate_texte_image_img).height}}" src="{{Image(fields.strate_texte_image_img).src}}" srcset="{{Image(fields.strate_texte_image_img).srcset}}" alt="{{Image(fields.strate_texte_image_img).alt}}">
+            </div>
+</div>
+</div>
+</div>
+
+<div class="contenu">
+
+{% endif %}
+

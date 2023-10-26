@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+{% block content %}
+
+{% set vars = {
+    titreHero: post.meta('block_hero_title'),
+    texteHero: post.meta('block_hero_texte'),
+    imageHero: post.thumbnail
+} %}
+{% include "includes/hero.twig" with vars %}
+
+<div class="contenu">
+
+        <div class="my2">
+        {{ fn('seopress_display_breadcrumbs') }}
+        </div>
+
+    {% include "includes/pagination.twig" %}
+
+    <section class="grid sm-c1 sm-cgy2 lg-c3 lg-cg2">
+        {% set vars = {loop: posts} %}
+        {% include "includes/card.twig" with vars %}
+    </section>
+
+    {% include "includes/pagination.twig" %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% for post in loop %}
+
+                   <article>
+  
+  <div class='slide-image'>
+    <div class='img--fond ratio'>
+    {% if post.thumbnail %}
+         <img width="{{post.thumbnail.width}}" height="{{post.thumbnail.height}}" src="{{ post.thumbnail.src('medium') }}" srcset="{{ post.thumbnail.srcset }}" alt="{{post.thumbnail.alt}}" />
+    {% else %}
+           <img src="{{site.theme.link}}/static/images/no-img.jpg" alt="{{post.title}}" />
+     {% endif %}
+    </div>    
+  </div>
+  
+    <div class='slide-contenu f-asc sm-p3 lg-p5'>
+      
+      
+    <h2 class="fs4 mb1">
+       <a class="col-txt" title="{{post.title}}" href="{{post.link}}">{{post.title}}</a>
+      </h2>
+     
+        <div class="txt-base">
+           {{post.preview.length(25).read_more('')}}
+          </div>
+          
+    </div> 
+</article>
+
+        {% endfor %}

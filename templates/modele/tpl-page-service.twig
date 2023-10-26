@@ -1,0 +1,162 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+{% block content %}
+    {% if post.meta('module_galerie') %}{% set galerie = post.meta('module_galerie') %}{% endif %}
+
+    {% set vars = {
+        titreHero: post.meta('block_hero_title'),
+        texteHero: post.meta('block_hero_texte'),
+        imageHero: post.thumbnail
+    } %}
+
+    {% include "includes/hero.twig" with vars %}
+
+    <div class="contenu">
+        <div class="my2">
+            {{ fn('seopress_display_breadcrumbs') }}
+        </div>
+
+        <div class="grid sm-c1 sm-cgy1 lg-c3 lg-cg2">
+
+            {% for encart in post.meta('encarts_service') %}
+            
+                <div class="survol relative bg-blanc">
+      
+                    <a class="card_img img--fond ratio pointer" title="{{encart.titre_encart_accueil}}" href='{{encart.lien_encart_service}}'>
+                      <img src="{{ Image(encart.image_encart_service).src }}" srcset="{{ Image(encart.image_encart_service).srcset }}" alt="{{Image(encart.image_encart_service).alt}}" width="{{ Image(encart.image_encart_service).width }}" height="{{ Image(encart.image_encart_service).height }}">
+                    </a>
+      
+                   <div class="card_cnt txt-blanc-all flex-jce">
+                     
+                        <div class="fond-survol p2">
+                     
+                            <div class="fs1"> 
+                                <a class='col-txt' href='{{encart.lien_encart_service}}' title="{{encart.titre_encart_service}}">{{encart.titre_encart_service}}</a>
+                            </div> 
+                         
+                            <div class="survol-contenu">
+                                <div class='article-txt txt-base'>
+                                    {{encart.texte_encart_service}}
+                                </div>
+                           </div>
+                    
+                        </div>
+                     
+                    </div>
+
+                </div>
+            {% endfor %}
+
+        </div>
+
+        {# STRATE 1 #}
+        {% if post.meta('titre_service_1') %}
+        <div class="flex f-fdc lg-f-fdr sm-mt4 lg-mt6">
+            <div class="{% if galerie.0 %}lg-w50{% endif %}">
+                <h2 class="mb2">{{post.meta('titre_service_1')}}</h2>
+
+                <div class="txt-base">
+                    {{post.meta('texte_service_1')}}
+                </div>
+
+            </div>
+        {% if galerie.0 %}
+        <div class="lg-w50 sm-pl0 lg-pl5">
+             <div class="img--fond ratio w100">
+                <img width="{{Image(galerie).0.width }}" height="{{Image(galerie).0.height}}" alt="{{Image(galerie).0.alt}}" src="{{Image(galerie).0.src }}" srcset="{{Image(galerie).0.srcset }}" />
+            </div>
+        </div>
+        {% endif %}
+        </div>
+        {% endif %}
+
+        {# STRATE 2 #}
+        {% if post.meta('titre_service_2') %}
+        <div class="flex f-fdc lg-f-fdr sm-mt4 lg-mt6">
+            <div class="{% if galerie.1 %}lg-w50 f-order2{% endif %}">
+                <h2 class="mb2">{{post.meta('titre_service_2')}}</h2>
+
+                <div class="txt-base">
+                    {{post.meta('texte_service_2')}}
+                </div>
+
+            </div>
+
+        {% if galerie.1 %}
+        <div class="lg-w50 sm-pr0 lg-pr5">
+             <div class="img--fond ratio w100">
+                <img width="{{Image(galerie).1.width }}" height="{{Image(galerie).1.height}}" alt="{{Image(galerie).1.alt}}" src="{{Image(galerie).1.src }}" srcset="{{Image(galerie).1.srcset }}" />
+            </div>
+        </div>
+        {% endif %}
+        </div>
+        {% endif %}
+
+        {# STRATE 3 #}
+        {% if post.meta('titre_service_3') %}
+        <div class="flex f-fdc lg-f-fdr sm-mt4 lg-mt6">
+            <div class="{% if galerie.2 %}lg-w50{% endif %}">
+                <h2 class="mb2">{{post.meta('titre_service_3')}}</h2>
+
+                <div class="txt-base">
+                    {{post.meta('texte_service_3')}}
+                </div>
+
+            </div>
+        {% if galerie.2 %}
+        <div class="lg-w50 sm-pl0 lg-pl5">
+             <div class="img--fond ratio w100">
+                <img width="{{Image(galerie).2.width }}" height="{{Image(galerie).2.height}}" alt="{{Image(galerie).2.alt}}" src="{{Image(galerie).2.src }}" srcset="{{Image(galerie).2.srcset }}" />
+            </div>
+        </div>
+        {% endif %}
+        </div>
+        {% endif %}
+
+        {# FAQ #}
+        {% if post.meta('bloc_faq') %}
+        <div class="sm-mt4 lg-mt6">
+           
+            <div class="fs5 mb2">
+                <span>Faq</span>
+                <span class="block fs2">vos questions fréquentes</span>
+            </div>
+      
+            <div class="oxy-dynamic-list module-faq">
+                {% for question in post.meta('bloc_faq') %}
+
+                <div class="bg-light faq-element p2 flex f-fdc f-aifs{% if not loop.last %} mb1{% endif %}">
+
+                    <div class="faq-toggle w100 flex pointer" data-faq-toggle-initial-state="closed" data-faq-toggle-active-class="toggle-expanded">
+
+
+                        {# <div class="faq-toggle-content"></div> #}
+                        <h3 class="fs1 fw6">{{question.question_bloc_faq}}</h3>
+
+                        <div class="oxy-expand-collapse-icon oxy-eci-collapsed tar" href="#"></div>
+                    </div>
+
+                    <div class="txt-base tal">
+                        {{question.reponse_bloc_faq}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {{post.content}}
+
+          <div class="sm-mt4 lg-mt6">
+
+             <div class="fs5 mb2">
+                <span>{{ __('Besoin d\'informations ?', 'roquette') }}</span>
+                <span class="block fs2">{{ __('Nous contacter', 'roquette') }}</span>
+            </div>
+
+             {{ function('do_shortcode', '[gravityform id="1" title="false" description="false"]') }}
+
+         </div>
+
+    </div>
+{% endblock %}

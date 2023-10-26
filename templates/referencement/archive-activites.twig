@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+{% block content %}
+
+    <div class="contenu py2">
+        <h1 class="mb2 fs4 fw6 tac">Découvrez toutes nos zones géographiques</h1>
+
+        <div class="mb1">{{ fn('seopress_display_breadcrumbs') }}</div>
+
+    <ul class="grid sm-c1 sm-cgy2 lg-c4 lg-cg1 zones-geoloc">
+
+        {{ function('get_secteurs') }}
+
+    </ul>
+
+    </div>
+{% endblock %}

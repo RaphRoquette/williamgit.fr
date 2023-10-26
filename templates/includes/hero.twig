@@ -1,0 +1,33 @@
+<div class="w100 relative">
+
+    
+        <div class="absolute-full img--fond w100 zi-1">
+        {% if imageHero %}
+       <img width="{{Image(imageHero).width }}" height="{{Image(imageHero).height}}" alt="{{Image(imageHero).alt}}" src="{{Image(imageHero).src }}" srcset="{{Image(imageHero).srcset }}" />
+        {% else %}
+         <img src="{{site.theme.link}}/static/images/no-img.webp" alt="{{post.title}}" />
+         {% endif %}
+    </div>
+   
+
+    <div class="cache zi-1"></div>
+
+    <div class="contenu py6">
+
+            <h1 class="sm-fs4 lg-w60 txt-blanc">
+                {% if titreHero %}
+                    {{titreHero}}
+                {% else %}
+                     {{post.title}}
+                {% endif %}
+            </h1>
+        
+        {% if texteHero %}
+            <div class="txt-base lg-w60 txt-blanc">
+                {{texteHero}}
+            </div>
+        {% endif %}
+
+    </div>
+
+</div>    

@@ -1,0 +1,41 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+{% if post.meta('module_galerie') %}{% set galerie = post.meta('module_galerie') %}{% endif %}
+
+{% block content %}
+{% set vars = {
+    titreHero: post.title,
+    texteHero: post.post_excerpt,
+    imageHero: post.thumbnail
+} %}
+{% include "includes/hero_single.twig" with vars %}
+
+   <div class="contenu lg-w70">
+
+    <div class="my2">
+        {{ fn('seopress_display_breadcrumbs') }}
+        </div>
+
+
+    <div class="txt-base">
+        {{post.content}}
+    </div>
+
+   </div>
+
+{# Contenu associé #}
+{% if post.module_related %}
+   <div class="lg-mt5 sm-mt3 sm-py4 lg-py6 bg-light">
+       <div class="contenu">
+            <div class="mb6 sm-fs4 lg-fs6 fw6 txt-center">
+            {{ __('Nos actualités', 'roquette') }}
+            </div>
+            <section class="grid sm-c1 sm-cgy2 lg-c3 lg-cg2">
+                {% set vars = {posts: Post(post.module_related), bgColor : 'bg-blanc'} %}
+                {% include "includes/card.twig" with vars %}
+            </section>
+       </div>
+    </div>  
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+{% block content %}
+
+    <div class="contenu pt4 pb2">
+
+        <h1 class="mb2 tac">{{options.seo_h1_secteurs}} {{term_page.name}} {# {{term_page.meta('code_postal')}} #}</h1>
+
+        <div class="flex sm-f-fdc f-jcc mb2">
+
+            <div class="lg-mr1 cta sm-mb1">
+                <a href="tel:+33{{options.url_telephone_local}}" class="txt-blanc">{{options.telephone_local}}</a>
+            </div>
+
+            <div class="cta">
+                <a href="{{site.url}}/contact" class="txt-blanc">Prendre RDV</a>
+            </div>
+
+        </div>
+
+        <div class="txt-base lg-w70 m0-auto">{{options.seo_texte_secteurs}}</div>
+
+        <div class="mt2">
+        {{ fn('seopress_display_breadcrumbs') }}
+        </div>
+  
+    </div>
+
+    <div class="bg-light py4">
+        <div class="contenu">
+            <div class="tac fs2 fw6 mb4">Toutes nos activités à proximité de {{term_page.name}}</div>
+              <section class="grid sm-c1 sm-cgy1 lg-c3 lg-cg1">
+        {# {% set vars = {loop: posts, bgColor : 'bg-blanc'} %}
+        {% include "includes/card.twig" with vars %} #}
+
+        {% for activite in posts %}
+
+            <article class="bg-fond p1" style="border-radius:5px;">
+                <h2 class="fs1 tac">
+                    <a class="col-txt" href="{{activite.link}}" title="{{activite.title}}">
+                        {{activite.title}}
+                    </a>
+                </h2>
+            </article>
+
+        {% endfor %}
+
+    </section>
+        </div>
+    </div>
+{% endblock %}

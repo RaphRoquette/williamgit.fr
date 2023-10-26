@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="contenu mb4">
+
+        <div class="my2">
+        {{ fn('seopress_display_breadcrumbs') }}
+        </div>
+
+        <h1 class="mb2">{{ __('Les résultats de votre recherche pour', 'roquette') }}: {{title}}</h1>
+
+         <section class="grid sm-c1 sm-cgy2 lg-c3 lg-cg2">
+
+        {% set vars = {loop: posts, bgColor : 'bg-light'} %}
+        {% include "includes/card.twig" with vars %}
+
+    </section>
+
+</div>
+
+{% endblock %}

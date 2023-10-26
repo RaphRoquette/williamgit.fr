@@ -1,0 +1,116 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+{% block content %}
+    {% if post.meta('module_galerie') %}{% set galerie = post.meta('module_galerie') %}{% endif %}
+
+
+
+    {% if post.thumbnail %}
+        <div class="hero-accueil flex relative">
+
+        <div class="img--fond absolute-full w100 zi-1">
+            <img width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}" src="{{ post.thumbnail.src }}" srcset="{{ post.thumbnail.srcset }}" alt="{{ post.thumbnail.alt }}" />
+        </div>
+
+
+        <div class="cache zi-1"></div>
+
+        <div class="contenu tac f-asc">
+            <div class="sm-fs3 lg-fs6 txt-blanc fw6">Slogan pour l'accueil</div><div class="sm-fs3 lg-fs4 txt-blanc fw6 mt1">Phrase courte accompagnant le slogan</div>
+        </div>
+
+        </div>
+    {% endif %}
+
+    <div class="contenu">
+
+        <div class="flex f-fdc lg-f-fdr sm-py4 lg-py5">
+
+            <div class="sm-pr0 lg-w50 lg-pr5">
+                <h1 class="mb2">{{post.title}}</h1>
+                
+                 <div class="txt-base">
+                {{post.content}}
+                </div>
+
+            </div>
+
+            {% if galerie.0 %}
+
+            <div class="w100 lg-w50">
+            <div class="img--fond ratio">
+                 <img src="{{Image(galerie).0.src}}" srcset="{{Image(galerie).0.srcset}}" alt="{{Image(galerie).0.alt}}" width="{{Image(galerie).0.width}}" height="{{Image(galerie).0.height}}" alt="{{Image(galerie).0.alt}}">
+            </div>
+            </div>
+
+            {% endif %}
+        </div>
+
+        <div class="grid sm-c1 sm-cgy1 lg-c3 lg-cg2">
+
+            {% for encart in post.meta('encarts_accueil') %}
+            
+            <div class="survol relative bg-blanc">
+  
+    <a class="card_img img--fond ratio pointer" title="{{encart.titre_encart_accueil}}" aria-label='{{encart.titre_encart_accueil}}' href='{{encart.lien_encart_accueil}}'>
+        {% if encart.image_encart_accueil %}
+      <img width="{{ Image(encart.image_encart_accueil).width }}" height="{{ Image(encart.image_encart_accueil).height }}" src="{{ Image(encart.image_encart_accueil).src }}" srcset="{{ Image(encart.image_encart_accueil).srcset }}" alt="{{encart.titre_encart_accueil}}">
+  {% else %}
+     <img src="{{site.theme.link}}/static/images/no-img.jpg" alt="{{post.title}}" />
+      {% endif %}
+    </a>
+  
+   <div class="card_cnt txt-blanc-all flex-jce">
+     
+     <div class="fond-survol p2">
+     
+      <div class="fs1"> 
+    <a class='col-txt' href='{{encart.lien_encart_accueil}}' title="{{encart.titre_encart_accueil}}">{{encart.titre_encart_accueil}}</a>
+    </div> 
+     
+     <div class="survol-contenu">
+    
+    <div class='article-txt txt-base'>
+         {{encart.texte_encart_accueil}}
+    </div>
+       
+       </div>
+    
+  </div>
+     
+      </div>
+
+</div>
+        {% endfor %}
+
+        </div>
+
+        {% if posts %}
+
+            <section class="slider sm-mt3 lg-mt5">
+                {% set vars = {loop: posts} %}
+                {% include "includes/slider.twig" with vars %}
+            </section>
+
+        {% endif %}
+
+    </div> {# END contenu #}
+
+    <div class="lg-mt5 sm-mt3 sm-py4 lg-py6 bg-light">
+
+       <div class="contenu">
+
+        <div class="mb6 sm-fs4 lg-fs6 fw6 tac">
+        {{ __('Nos actualités', 'roquette') }}
+        </div>
+
+         {% if posts %}
+            <section class="grid sm-c1 sm-cgy2 lg-c3 lg-cg2">
+                {% set vars = {loop: posts, bgColor : 'bg-blanc'} %}
+                {% include "includes/card.twig" with vars %}
+            </section>
+        {% endif %}
+
+       </div>
+    </div>  
+{% endblock %}

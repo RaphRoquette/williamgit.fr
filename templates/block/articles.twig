@@ -1,0 +1,27 @@
+{#
+/**
+ * Block Name: Articles en relation
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+
+{# <div class="fw6 sm-fs3 lg-fs4 mb2">Découvrez aussi</div> #}
+
+{% if is_preview %}
+
+ <h1 style="color:#fff;font-weight:normal;padding:0.5em;background: #007cba;">Bloc : {{block.title}}</h1>
+
+{% else %}
+
+    <section class="grid sm-c1 sm-cgy2 lg-c3 lg-cg2 {{block.className}} ">
+    {% set vars = {loop: Post(fields.module_related), bgColor : 'bg-light'} %}
+    {% include "includes/card.twig" with vars %}
+</section>
+
+{% endif %}
+
+
+
+

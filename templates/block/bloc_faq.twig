@@ -1,0 +1,49 @@
+{#
+/**
+ * Block Name: Texte + image
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+
+{% if is_preview %}
+      <h1 style="color:#fff;font-weight:normal;padding:0.5em;background: #007cba;">Bloc : {{block.title}}</h1>
+{% else %}
+
+    </div>
+
+<div class="bg-light sm-py4 lg-py5 module-faq {{block.className}} ">
+<div class="contenu">
+
+    <div class="fw6 sm-fs3 lg-fs4 mb4">FAQ : vos questions fréquentes</div>
+
+   <div class="oxy-dynamic-list module-faq">
+                {% for question in fields.bloc_faq %}
+
+                <div class="bg-light faq-element p2 flex f-fdc f-aifs{% if not loop.last %} mb1{% endif %}">
+
+                    <div class="faq-toggle w100 flex pointer" data-faq-toggle-initial-state="closed" data-faq-toggle-active-class="toggle-expanded">
+
+
+                        {# <div class="faq-toggle-content"></div> #}
+                        <h3 class="fs1 fw6">{{question.question_bloc_faq}}</h3>
+
+                        <div class="oxy-expand-collapse-icon oxy-eci-collapsed tar" href="#"></div>
+                    </div>
+
+                    <div class="txt-base tal">
+                        {{question.reponse_bloc_faq}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+</div>
+</div>
+
+
+<div class="contenu">
+
+
+{% endif %}

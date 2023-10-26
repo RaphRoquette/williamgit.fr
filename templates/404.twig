@@ -1,0 +1,23 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+{% block content %}
+
+{% set vars = {
+    titreHero: 'Page 404',
+    texteHero: post.meta('block_hero_texte'),
+    imageHero: post.thumbnail
+} %}
+{% include "includes/hero.twig" with vars %}
+
+<div class="contenu">
+
+        <div class="my2">
+        {{ fn('seopress_display_breadcrumbs') }}
+        </div>
+        {{ __('La page que vous recherchez n\'existe pas', 'roquette') }}.
+
+         
+
+</div>
+
+{% endblock %}

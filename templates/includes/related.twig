@@ -1,0 +1,28 @@
+<article class="bg-fond">
+
+                        <a href="{{post.link}}" class="img--fond ratio article-image">
+                            {% if post.thumbnail %}
+                                <img width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}" src="{{ post.thumbnail.src }}" srcset="{{ post.thumbnail.srcset }}" alt="{{ post.thumbnail.alt }}" />
+                            {% endif %}
+                        </a>
+
+                        <div class="article-contenu sm-p2 lg-p3">
+                            <div>
+                                <h2 class="fs2 mb1"> 
+                                    <a class="col-txt" title="{{post.title}}" href="{{post.link}}">{{post.title}}</a>
+                                </h2>
+
+                                <div class="txt-base article-txt mb2">
+                                    {{post.preview.length(25)}}
+                                </div>
+                            </div>
+
+                            <div class="btn--end">
+                                <a class="bg-col1 cta txt-blanc uppercase" href="{{post.link}}">
+                                    <div class="darken">{{ __('Découvrir', 'roquette') }} <i class="material-icons">chevron_right</i></div>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </article>

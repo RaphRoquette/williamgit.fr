@@ -1,0 +1,43 @@
+{#
+/**
+ * Block Name: Textes en colonnes
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+
+{% if is_preview %}
+
+<h1 style="color:#fff;font-weight:normal;padding:0.5em;background: var(--tagify-dd-color-primary);">Bloc : {{block.title}}</h1>
+
+{% else %}
+
+
+{% set nbCol = fields.options_textes_colonnes.options_nb_col %}
+
+</div>
+
+<div class="wrapBlock bg-col1 txt-blanc {{block.className}} ">
+<div class="contenu">
+<div class="flex grid lg-c{{nbCol}} lg-cg5 sm-py4 lg-py5 f-aic">
+
+    {% for item in fields.paragraphes_textes_colonnes %}
+        <div>
+            <h2>{{item.titre_textes_colonnes}}</h2>
+
+            <div class="txt-base">
+                {{item.texte_textes_colonnes}}
+            </div>
+
+        </div>
+    {% endfor %}
+
+
+</div>
+</div>
+</div>
+
+<div class="contenu">
+
+{% endif %}

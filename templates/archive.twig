@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+{% block content %}
+
+    {% set vars = {
+    titreHero: term_page.name,
+    texteHero: term_page.description,
+    imageHero: Image(term_page.meta('image_category'))
+    } %}
+   
+    {% include "includes/hero_archive.twig" with vars %}
+    <div class="contenu">
+        <div class="flex sm-f-fdc lg-f-aic lg-f-jcsb my2">
+            <div class="">
+                {{ fn('seopress_display_breadcrumbs') }}
+            </div>
+        {% include "includes/pagination.twig" %}
+    </div>
+
+        <section class="grid sm-c1 sm-cgy2 lg-c3 lg-cg2">
+            {% set vars = {loop: posts, bgColor : ''} %}
+            {% include "includes/card.twig" with vars %}
+        </section>
+
+        {% include "includes/pagination.twig" %}
+    </div>
+{% endblock %}

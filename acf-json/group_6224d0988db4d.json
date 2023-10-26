@@ -1,0 +1,97 @@
+{
+    "key": "group_6224d0988db4d",
+    "title": "Bloc - Questions fréquentes",
+    "fields": [
+        {
+            "key": "field_6224d0c1d0d77",
+            "label": "Questions",
+            "name": "bloc_faq",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_6224d0e8d0d78",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Ajouter une question",
+            "sub_fields": [
+                {
+                    "key": "field_6224d0e8d0d78",
+                    "label": "Question",
+                    "name": "question_bloc_faq",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_6224d0c1d0d77"
+                },
+                {
+                    "key": "field_6224d105d0d79",
+                    "label": "Réponse",
+                    "name": "reponse_bloc_faq",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 1,
+                    "parent_repeater": "field_6224d0c1d0d77"
+                }
+            ],
+            "rows_per_page": 20
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/bloc-faq"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "tpl-page-service.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1672321727
+}

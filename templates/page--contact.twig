@@ -1,0 +1,56 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+{% if post.meta('module_galerie') %}{% set galerie = post.meta('module_galerie') %}{% endif %}
+
+{% block content %}
+
+{% set vars = {
+    titreHero: post.meta('block_hero_title'),
+    texteHero: post.meta('block_hero_texte'),
+    imageHero: post.thumbnail
+} %}
+{% include "includes/hero.twig" with vars %}
+
+<div class="contenu">
+    <div class="my2">
+        {{ fn('seopress_display_breadcrumbs') }}
+        </div>
+<div class="flex sm-f-fdc py2">
+
+        <div class="bg-light sm-p4 lg-p6 lg-w30 f-jcc f-aic flex sm-mb4">
+            <div class="tal">
+                <ul class="list-none">
+                    <li class="bold fs2 fw6 mb1">{{options.nom_local}}</li>
+                    <li>{{options.adresse_local}}</li>
+                    <li>{{options.complement_adresse_local}}</li>
+                     <li>{{options.code_postal_local}} - {{options.ville_local}}</li>
+                      <li class="bold fw6 my1">{{options.telephone_local}}</li>
+                </ul>
+                {% if options.lien_google_map_local %}
+                <div class="btn--start mt1">
+                    <a title="Plan d'accès" href="{{options.lien_google_map_local}}" class="cta--small">
+                        Plan d'accès
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+         <div class="lg-pl5 lf-w70">
+            <h2 class="mb2">Formulaire de contact</h2>
+              {{ function('do_shortcode', '[gravityform id="1" title="false" description="false" field_values="form_champ_msg=Votre message: "]') }}
+        </div>
+
+    </div>
+
+    {# <div class="flex sm-py4 lg-py5">
+
+            <div class="txt-base">
+                {{post.content}}
+            </div>
+        </div> #}
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,148 @@
+<div class="bg-light flex f-fdc f-aic py5 mt6">
+	<div class="contenu tac">
+		<div class="ttu fs1 mb05">Plus de renseignements ?</div>
+		<div class="ttu fs3">Nous sommes à votre écoute</div>
+	
+	<div class="flex f-jcc mt1">
+		<a title="Nous contacter" href="{{site.url}}/contact/" class="cta">
+	Contactez-nous
+	</a>
+	</div>
+	</div>
+	</div>
+
+	<div class="contenu py4">
+		<div class="grid lg-c3 sm-c-gy3 lg-c-gx5 w100 f-aic">
+
+		<div class="tac">
+			<ul class='list-none'>
+				<li class="fw6">{{options.nom_local}}</li>
+				{% if options.adresse_local %}
+				<li>{{options.adresse_local}}</li>
+				{% endif %}
+				{% if options.complement_adresse_local %}
+				<li>{{options.complement_adresse_local}}</li>
+					{% endif %}
+				{% if options.adresse_local %}
+				<li>{{options.code_postal_local}} - {{options.ville_local}}</li>
+					{% endif %}
+					{% if options.telephone_local %}
+				<li>{{options.telephone_local}}</li>
+					{% endif %}
+			</ul>
+			{% if options.lien_google_map_local %}
+			<div class="flex sm-f-jcc lg-f-jcc">
+				<a title="Voir le plan d'accès" target="blank" href="{{options.lien_google_map_local}}" class="cta--small">Plan d'accès</a>
+			</div>
+			{% endif %}
+		</div>
+
+		<div class="tac">
+			<img width="120" height src="{{ site.theme.link }}/static/images/logo.png" alt="{{site.title}}">
+
+			{% if options.horaires_local_fix %}
+				<div class="sm-tac">{{options.horaires_local_fix}}</div>
+			{% endif %}
+
+			
+		</div>
+
+		<div class="tac">
+			<div class="partage-article">
+		{% if options.social_facebook %}
+	  <a class="social-follow-facebook" href="{{options.social_facebook }}" target="blank" title="Nous suivre sur Facebook" rel="noopener">  
+	  	<span class="picto-share">
+	  	{{ source('static/images/social/facebook.svg') }}
+	  	{# <img width="16" height="16" class="noLazy" src="{{ site.theme.link }}/static/images/social/facebook.svg" alt="Nous suivre sur Facebook" title="Nous suivre sur Facebook"> #}
+	  </span>
+	  </a>
+	 {% endif %}
+
+	  {% if options.social_twitter %}
+	  <a class="social-follow-twitter" title="Nous suivre sur Twitter" href="{{options.social_twitter }}" target="blank" title="Nous suivre sur Twitter" rel="noopener">
+	  	<span class="picto-share">
+	  		{{ source('static/images/social/twitter.svg') }}
+	  	</span>
+	  </a>
+	  {% endif %}
+
+	  {% if options.social_linkedin %}
+	   <a class="social-follow-linkedin" href="{{options.social_linkedin }}" target="blank" title="Nous suivre sur Linkedin" rel="noopener">
+	   		<span class="picto-share">
+	  		{{ source('static/images/social/linkedin.svg') }}
+	  	</span>
+	   </a>
+	  {% endif %}
+
+	   {% if options.social_instagram %}
+	   <a class="social-follow-instagram" href="{{options.social_instagram }}" target="blank" title="Nous suivre sur Instagram" rel="noopener"> 
+	   	<span class="picto-share">
+	  		{{ source('static/images/social/instagram.svg') }}
+	  	</span>
+	   </a>
+	   {% endif %}
+
+	   {% if options.social_youtube %}
+	   <a class="social-follow-Youtube" href="{{options.social_youtube }}" target="blank" title="Nous suivre sur Youtube" rel="noopener">
+	   	<span class="picto-share">
+	  		{{ source('static/images/social/youtube.svg') }}
+	  	</span>
+	   	</a>
+	 {% endif %}
+			</div>
+		</div>
+
+	</div>
+	</div>
+
+
+	<div class="bg-light py1 footer-mentions">
+			<div class="contenu">
+				
+				
+					<div class="flex sm-tac sm-f-fdc sm-f-aic f-jcsb f-aife">
+
+					<div class="flex sm-f-fdc f-jcfe f-aic f-jcfe badge-eco relative">
+						<div>
+					Site internet
+					  <span class="block">éco-responsable</span>
+					</div>
+
+<div>
+  seulement <span class="valeur-co2">0.00g de CO2</span>
+  <span class="block">émis en moyenne par page</span>
+
+</div>
+
+<img class="image-eco" src="{{ site.theme.link }}/static/images/eco.png" alt="Site internet éco-responsable">
+
+</div>
+
+		
+				
+
+				<div class="flex sm-f-fdc f-aic">
+
+					<ul class="flex sm-f-fdc sm-tac list-none">
+			   <li class="">
+			    <a title="Tous nos secteurs géographiques" class="col-txt" href="{{site.url}}/activites/">Localisation</a>
+			  </li>
+			  <li>
+			    <a title="Voir nos mentions légales" class="col-txt" href="{{site.url}}/mentions-legales/">Mentions légales</a>
+			  </li>
+
+			   <li>
+			    <a title="Voir nos mentions légales" class="col-txt" href="{{site.url}}/mentions-legales/">Politique de confidentialité</a>
+			  </li>
+
+				</ul>
+
+<a id="roquette-footer" title="Agence Web Roquette" href="https://www.roquette.bzh/" target="blank" rel="noopener">{{ source('static/images/badge.svg') }}</a>
+
+</div>
+				
+
+			
+		</div>
+	</div>
+</div>

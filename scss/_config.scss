@@ -1,0 +1,119 @@
+:root {
+  /* Couleurs */
+  --fond: #ffffff;
+  --col1: #76c18f;
+  --col2: #000000;
+  --col3: #CCCCCC;
+  --txt: #000000;
+  --light: #eeeeee;
+  --dark: #000000;
+  --blanc: #ffffff;
+  --noir: #000000;
+  --font: 'Roboto', sans-serif;
+  --font-alt: 'Roboto', sans-serif;
+	
+	/* Espaces */
+  --space: 0.5rem;
+  --space-1: 1rem;
+  --space-2: 2rem;
+  --space-3: 3rem;
+  --space-4: 4rem;
+  --space-5: 5rem;
+  --space-6: 6rem;
+  --space-7: 7rem;
+  --space-8: 8rem;
+  --space-9: 9rem;
+
+    /* Tailles police */
+  --fs--2: clamp(0.69rem, 0.71rem + -0.09vw, 0.64rem);
+  --fs--1: clamp(0.83rem, 0.84rem + -0.05vw, 0.80rem);
+  --fs-0: clamp(1.00rem, 1.00rem + 0.00vw, 1.00rem);
+  --fs-1: clamp(1.20rem, 1.18rem + 0.08vw, 1.25rem);
+  --fs-2: clamp(1.44rem, 1.40rem + 0.20vw, 1.56rem);
+  --fs-3: clamp(1.73rem, 1.65rem + 0.37vw, 1.95rem);
+  --fs-4: clamp(2.07rem, 1.95rem + 0.60vw, 2.44rem);
+  --fs-5: clamp(2.49rem, 2.30rem + 0.92vw, 3.05rem);
+  --fs-6: clamp(2.99rem, 2.72rem + 1.35vw, 3.82rem);
+  --fs-7: clamp(3.58rem, 3.20rem + 1.93vw, 4.77rem);
+  --fs-8: clamp(4.30rem, 3.76rem + 2.71vw, 5.96rem);
+  --fs-9: clamp(5.16rem, 4.41rem + 3.74vw, 7.45rem);
+
+  /* CONTENU */
+
+  /* Taille texte */
+  --body-size: 16px;
+
+  /* Interline paragraphes */
+  --line-height: 1.61;
+
+  /* Interline Headings */
+  --line-height--headings: 1.2;
+
+   /* Couleurs des titres */
+  --col-headings: var(--txt);
+
+  --fs-nav: 15px;
+}
+
+
+/* Couleurs menu */
+  /* Liens 1er niveau */
+    /* --> Desktop */
+      $col-lien: var(--txt);
+      $col-lien-hover: var(--col1);
+      $col-lien-actif: var(--col1);
+      /* --> Mobile */
+      $bg-menu-resp: var(--fond);
+      $col-lien-resp: var(--txt);
+      $col-lien-hover-resp: var(--col1);
+      $col-lien-actif-resp: var(--col1);
+
+  /* Sous menu */
+    /* --> Desktop */
+      $bg-menu-sub: var(--fond);
+      $col-lien-sub: var(--txt);
+      $col-lien-sub-hover: var(--txt);
+      $col-lien-bg-sub-hover: var(--light);
+      /* --> Mobile */
+      $bg-menu-sub-resp: var(--col1);
+      $col-lien-sub-resp: var(--txt);
+      $col-lien-sub-hover-resp: var(--txt);
+
+/* Crans resp */
+  $large : 1200px;
+  $tablette : 1024px;
+  $mobile : 768px;
+
+/* Hauteur du cta-smart à comp en mobile */
+  $compCtaSmart : 70px;
+
+/* Chargement des fonts */
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Regular'),
+        url('../font/roboto-regular.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+    unicode-range: U+000-5FF;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Bold'),
+        url('../font/roboto-bold.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+    unicode-range: U+000-5FF;
+}
+
+// @font-face {
+//   font-family: 'Material Icons';
+//   font-style: normal;
+//   font-weight: 400;
+//   font-display: swap;
+//   src: local('Material Icons'),
+//     local('MaterialIcons-Regular'),
+//     url('../font/material-icon/MaterialIcons-Regular.woff2') format('woff2');
+// } 

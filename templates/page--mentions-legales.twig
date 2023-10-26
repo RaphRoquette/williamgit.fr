@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+{% block content %}
+
+{% set vars = {
+    titreHero: post.meta('block_hero_title'),
+    texteHero: post.meta('block_hero_texte'),
+    imageHero: post.thumbnail
+} %}
+{% include "includes/hero.twig" with vars %}
+
+<div class="contenu">
+
+        <div class="my2">
+        {{ fn('seopress_display_breadcrumbs') }}
+        </div>
+
+        <div class="txt-base">
+           <p> Conformément aux dispositions des articles 6-III et 19 de la Loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., nous portons à la connaissance des utilisateurs et visiteurs du site {{site.url}} les informations suivantes :</p>
+
+<h2>Créateur du site</h2>
+<p>Le site web {{site.url}} est crée et maintenu par la Société ROQUETTE WEB, immatriculée au Registre du Commerce et des Sociétés de Quimper sous le numéro SIRET 888 018 538 00015, dont le siège social est situé 28 Rue Jean Jaurès – 29720 Plonéour-Lanvern – France.</p>
+
+<h2>Hébergement</h2>
+<p>Le site est hébergé par la société OVH, dont le siège social est situé 2 rue Kellermann – 59100 Roubaix – France
+<h2>Contenu éditorial</h2>
+<p>Directeur de la publication des contenus: {{options.raison_sociale}}</p>
+<p>Nom du responsable : {{options.prenom_gerant}} {{options.nom_gerant}}</p>
+
+<h2>Données personnelles</h2>
+<p>D’une manière générale, vous pouvez visiter le site sans avoir à décliner votre identité et à fournir des informations personnelles vous concernant. Cependant, nous pouvons parfois vous demander des informations. Par exemple, lors de l’utilisation du formulaire de contact.</p>
+
+<p>La collecte de ces informations à caractère personnel s’opère dans le respect des dispositions du RÈGLEMENT (UE) 2016/679 DU PARLEMENT EUROPÉEN ET DU CONSEIL du 27 avril 2016 relatif à la protection des personnes physiques à l’égard du traitement des données à caractère personnel et à la libre circulation de ces données (RGPD).</p>
+
+<h2>Cookies</h2>
+<p>Le site peut collecter automatiquement des informations standard telles que tous types d’informations personnalisées qui permettent au site d’identifier ses visiteurs.</p>
+
+<p>Toutes les informations collectées indirectement ne seront utilisées que pour suivre le volume, le type et la configuration du trafic utilisant ce site, pour en développer la conception et l’agencement et à d’autres fins administratives et de planification et plus généralement pour améliorer le service que nous vous offrons.</p>
+
+ {{post.content}}
+
+</div>
+
+    
+</div>
+
+{% endblock %}

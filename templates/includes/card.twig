@@ -1,0 +1,34 @@
+{% for post in loop %}
+
+                    <article class="card {{bgColor}}">
+
+                        <a href="{{post.link}}" class="img--fond ratio card_img">
+                            {% if post.thumbnail %}
+                                <img width="{{ post.thumbnail.width }}" height="{{ post.thumbnail.height }}" src="{{ post.thumbnail.src('medium') }}" srcset="{{ post.thumbnail.srcset }}" alt="{{post.thumbnail.post_title}}" alt="{{ post.thumbnail.alt }}" />
+                            {% else %}
+                                <img src="{{site.theme.link}}/static/images/no-img.webp" alt="{{post.title}}" />
+                            {% endif %}
+                        </a>
+
+                        <div class="card_cnt p2">
+                            <div>
+                                <h2 class="fs2 mb1"> 
+                                    <a class="col-txt" title="{{post.title}}" href="{{post.link}}">{{post.title}}</a>
+                                </h2>
+
+                                <div class="card_excerpt txt-base mb2">
+                                    {{post.post_excerpt(25)}}
+                                </div>
+                            </div>
+
+                            <div class="btn--end">
+                                <a class="cta--small flex f-aic" href="{{post.link}}">
+                                {{ __('Découvrir', 'roquette') }} 
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+        {% endfor %}

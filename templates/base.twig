@@ -1,0 +1,69 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+    {% block head %}{% endblock %}
+    </head>
+{% endblock %}
+
+    <body class="{{body_class}} {% block body_custom_class %}{% endblock %}">
+
+        <header id="header" role="banner" class="header py1 w100">
+            {% block header %}
+                <div class="contenu flex f-jcsb f-aic">
+                    <a id="logo" title="{{site.title}}" role="banner" href="{{site.url}}" rel="home">
+                        <img class="skip-lazy" width="100" height src="{{ site.theme.link }}/static/images/logo.png" alt="{{site.title}}">
+                    </a>
+
+                    <div class="flex f-fdc tar">
+
+                       {#  <div class="search-form">
+                        <form role="search" method="get" id="searchform" class="searchform" action="{{ site.link }}">
+                          <input type="text" placeholder="Rechercher sur le site..." value="{{ function('get_search_query') }}" name="s" id="s" />
+                     </form>
+                    </div> #}
+
+                        <div class="fs1 mb1 fw6">{{options.telephone_local}}</div>
+         
+                              <nav id="menu" class="nav-main" role="navigation">
+                                {% include "includes/menu.twig" %}
+                            </nav>
+                    </div>
+
+                    <div id="btMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    
+                </div>
+            {% endblock %}
+        </header>
+
+        {# contenu de la page #}
+         <main id="main_cnt" role="main">
+        {% block content %}
+        {% endblock %}
+        </main>
+
+        {% block footer %}
+            <footer id="footer">
+                {% include 'includes/footer.twig' %}
+            </footer>
+            <div class="menu-smart">
+                <div class="menu-smart-wrap w100">
+                        <a href="{{options.url_telephone_local}}" class="call-tracking tac ttu">
+                            <span class="material-icons">phone</span>
+                            <span>Appeler</span>
+                        </a>
+                        <a href="{{site.url}}/contact" class="tac ttu">
+                             <span class="material-icons">email</span>
+                            <span>Contacter</span>
+                        </a>
+                </div>
+            </div>
+             {{ function('wp_footer') }}
+        {% endblock %}
+
+    </body>
+</html>

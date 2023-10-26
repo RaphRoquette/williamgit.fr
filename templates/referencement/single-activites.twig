@@ -1,0 +1,97 @@
+{% extends "base.twig" %}
+{% block body_custom_class %}{% endblock %}
+
+{% block content %}
+<div class="contenu sm-py2 lg-py4">
+
+        <h1 class="mb3 tac fw6">{{post.title}}</h1>
+
+        <div class="flex sm-f-fdc f-jcc">
+
+            <div class="lg-mr1 cta sm-mb1">
+                <a href="tel:+33{{options.url_telephone_local}}" class="txt-blanc">{{options.telephone_local}}</a>
+            </div>
+
+            <div class="cta">
+                <a href="{{site.url}}/contact" class="txt-blanc">Prendre RDV</a>
+            </div>
+
+        </div>
+
+        <div class="txt-base sm-mt2 lg-mt3 lg-w70 m0-auto">{{post.content}}</div>
+
+        <div class="my2 tac">
+        {{ fn('seopress_display_breadcrumbs') }}
+        </div>
+  
+    </div>
+
+    <div class="bg-light py4">
+        <div class="contenu">
+            <div class="tac">
+                <div class="fw6 fs4 mb1">Besoin de plus d'informations ?</div>
+            <div class="fs3 mb3">Contactez-nous</div>
+            </div>
+           <div class="lg-w60 m0-auto">
+             {{ function('do_shortcode', '[gravityform id="1" title="false" description="false"]') }}
+           </div>
+        </div>
+    </div>
+
+
+{# Contenu associé #}
+{% if posts %}
+   <div class="contenu lg-mt4 sm-mt3 sm-py2 lg-py6">
+            <div class="sm-mb2 lg-mb6 sm-fs3 lg-fs4 tac">
+                Vous pourriez être intéressé.e par :
+            </div>
+           <section class="grid sm-c1 sm-cgy2 lg-c3 lg-cg2">
+        {% set vars = {loop: posts, bgColor : 'bg-light'} %}
+        {% include "includes/card.twig" with vars %}
+    </section>
+    </div>  
+{% endif %}
+
+    <div class="contenu sm-pb2 lg-mt4 lg-py6">
+        <div class="grid sm-c1 lg-c2">
+
+            <div class="sm-mb2">
+
+                <div class="tac fw6 fs2">
+                    Toutes nos activités à
+                    {% for secteur in post.terms %}
+                        {% if secteur.taxonomy == 'secteur' %}{{secteur.name}}{% endif %} 
+                    {% endfor %}
+                </div>
+
+                <div>
+                    <ul class="expressions tac list-none">
+                         {{ function('display_seo_related') }}
+                     </ul>
+                </div>
+
+            </div>
+
+            <div>
+
+                 <div class="tac fw6 fs2">
+                Nos autres secteurs pour
+                {% for prestation in post.terms %}{% if prestation.taxonomy == 'prestation' %}{{prestation.name}}{% endif %} 
+                {% endfor %}
+
+            </div>
+
+            <div class="tac">
+                  <ul class="expressions tac list-none">
+                         {{ function('prestations_related') }}
+                     </ul>
+            </div>
+
+            </div>
+
+           
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+
+
+<ul id="menu-principal">
+        {% for item in menu.items %}
+            <li class="nav-main-item {{ item.classes|join(' ') }} {% if item.children %}has-children{% endif %}">
+                <a title="{{ item.title }}" class="nav-main-link" href="{{ item.link }}">{{ item.title }}
+                </a>
+                {% if item.children %}
+                    <ul class="sub-menu">
+                        {% for child in item.children %}
+                            <li class="sub-item {% if child.children %}has-children{% endif %}">
+                                <a title="{{ child.title }}" href="{{ child.link }}">{{ child.title }}
+                                   {% if child.children %}
+                                        {# <span class="ouvre-sousMenu"></span> #}
+                                        {% endif %}
+                                </a>
+                                {% if child.children %}
+                    <ul class="sub-menu">
+                        {% for subChild in child.children %}
+                            <li class="sub-item">
+                                <a title="{{ subChild.title }}" href="{{ subChild.link }}">{{ subChild.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
